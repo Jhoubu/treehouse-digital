@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treehouse Digital — Apresentação Comercial</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1F37C2;--blue-dark:#172A9E;--blue-light:#EEF1FB;
+  --cream:#F2F0EE;--ink:#0D0D0D;--muted:#6B6B6B;--border:#E0DDD9;
+}
+body{background:var(--cream);font-family:'Inter',sans-serif;color:var(--ink)}
+
+/* ── HERO ── */
+.hero{
+  background:var(--blue);padding:72px 48px 80px;
+  position:relative;overflow:hidden;text-align:center;
+}
+.hero::before{
+  content:'TREEHOUSE';position:absolute;
+  bottom:-40px;left:50%;transform:translateX(-50%);
+  font-family:'Sora',sans-serif;font-size:180px;font-weight:800;
+  color:rgba(255,255,255,0.04);letter-spacing:-0.04em;
+  pointer-events:none;white-space:nowrap;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.8);padding:6px 16px;border-radius:100px;
+  font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  margin-bottom:24px;
+}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:#fff;
+  animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-title{
+  font-family:'Sora',sans-serif;font-size:clamp(36px,5vw,64px);
+  font-weight:800;color:#fff;letter-spacing:-0.03em;
+  line-height:1.05;margin-bottom:20px;position:relative;z-index:1;
+}
+.hero-title em{font-style:normal;opacity:.7}
+.hero-sub{
+  font-size:17px;color:rgba(255,255,255,.7);
+  max-width:520px;margin:0 auto 40px;line-height:1.7;
+  position:relative;z-index:1;
+}
+.hero-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;color:var(--blue);
+  padding:14px 28px;border-radius:8px;
+  font-size:15px;font-weight:600;text-decoration:none;
+  transition:transform .15s,background .15s;
+  position:relative;z-index:1;
+}
+.hero-cta:hover{background:var(--cream);transform:translateY(-2px)}
+.hero-cta svg{width:14px;height:14px;stroke:var(--blue);stroke-width:2;fill:none}
+
+/* ── CONTAINER ── */
+.container{max-width:900px;margin:0 auto;padding:72px 24px}
+
+/* ── SECTION LABEL ── */
+.section-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.eyebrow-line{width:24px;height:2px;background:var(--blue)}
+.eyebrow-text{font-size:11px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--blue)}
+.section-title{
+  font-family:'Sora',sans-serif;font-size:clamp(28px,4vw,42px);
+  font-weight:800;letter-spacing:-0.03em;color:var(--ink);
+  line-height:1.1;margin-bottom:12px;
+}
+.section-title em{font-style:normal;color:var(--blue)}
+.section-sub{font-size:16px;color:var(--muted);line-height:1.7;max-width:560px}
+
+/* ── PROBLEMA ── */
+.problema-section{padding:72px 24px;background:#fff}
+.problema-inner{max-width:900px;margin:0 auto}
+.problema-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;
+}
+.prob-card{
+  padding:20px;border-radius:12px;
+  background:var(--cream);border:1px solid var(--border);
+}
+.prob-icon{font-size:24px;margin-bottom:12px}
+.prob-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.prob-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* ── COMO TRABALHAMOS ── */
+.processo-section{padding:72px 24px;background:var(--cream)}
+.processo-inner{max-width:900px;margin:0 auto}
+.steps{display:flex;flex-direction:column;gap:0;margin-top:40px}
+.step-row{
+  display:grid;grid-template-columns:48px 1fr;gap:20px;
+  padding:24px 0;border-bottom:1px solid var(--border);
+  align-items:start;
+}
+.step-row:last-child{border-bottom:none}
+.step-n{
+  width:48px;height:48px;border-radius:12px;
+  background:var(--blue);color:#fff;
+  font-family:'Sora',sans-serif;font-size:16px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.step-content{}
+.step-title{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.step-desc{font-size:14px;color:var(--muted);line-height:1.6}
+.step-tag{
+  display:inline-block;font-size:11px;font-weight:500;
+  padding:3px 10px;border-radius:20px;margin-top:8px;
+  background:var(--blue-light);color:var(--blue);
+}
+
+/* ── SERVIÇOS ── */
+.servicos-section{padding:72px 24px;background:#fff}
+.servicos-inner{max-width:900px;margin:0 auto}
+.svc-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px;
+}
+.svc-card{
+  padding:24px;border-radius:16px;border:1px solid var(--border);
+  background:var(--cream);transition:border-color .2s,transform .2s;
+  cursor:default;
+}
+.svc-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.svc-icon{
+  width:44px;height:44px;border-radius:10px;
+  background:var(--blue-light);border:1px solid rgba(31,55,194,.15);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;
+}
+.svc-icon svg{width:20px;height:20px;stroke:var(--blue);stroke-width:1.8;
+  fill:none;stroke-linecap:round;stroke-linejoin:round}
+.svc-name{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;
+  color:var(--ink);margin-bottom:8px;letter-spacing:-0.01em}
+.svc-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:12px}
+.svc-includes{display:flex;flex-wrap:wrap;gap:6px}
+.svc-tag{font-size:11px;padding:3px 9px;border-radius:20px;
+  border:1px solid var(--border);color:var(--muted);background:#fff}
+
+/* ── RESULTADOS ── */
+.resultados-section{
+  padding:72px 24px;background:var(--blue);
+}
+.resultados-inner{max-width:900px;margin:0 auto}
+.resultados-inner .section-title{color:#fff}
+.resultados-inner .section-sub{color:rgba(255,255,255,.65)}
+.resultados-inner .eyebrow-text{color:rgba(255,255,255,.5)}
+.resultados-inner .eyebrow-line{background:rgba(255,255,255,.3)}
+.res-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px;
+}
+.res-card{
+  padding:24px;border-radius:16px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
+}
+.res-num{
+  font-family:'Sora',sans-serif;font-size:36px;font-weight:800;
+  color:#fff;letter-spacing:-0.03em;margin-bottom:4px;
+}
+.res-label{font-size:13px;color:rgba(255,255,255,.65);line-height:1.5}
+
+/* ── DIFERENCIAIS ── */
+.diff-section{padding:72px 24px;background:var(--cream)}
+.diff-inner{max-width:900px;margin:0 auto}
+.diff-list{display:flex;flex-direction:column;gap:12px;margin-top:40px}
+.diff-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px;border-radius:12px;
+  background:#fff;border:1px solid var(--border);
+}
+.diff-check{
+  width:28px;height:28px;border-radius:8px;
+  background:var(--blue);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:12px;font-weight:700;margin-top:1px;
+}
+.diff-text{}
+.diff-title{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.diff-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* ── CTA FINAL ── */
+.cta-section{
+  padding:80px 24px;background:var(--ink);
+  text-align:center;position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'VAMOS?';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  font-family:'Sora',sans-serif;font-size:200px;font-weight:800;
+  color:rgba(255,255,255,0.03);letter-spacing:-0.04em;
+  pointer-events:none;white-space:nowrap;
+}
+.cta-inner{position:relative;z-index:1}
+.cta-tag{
+  display:inline-block;font-size:11px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);margin-bottom:16px;
+}
+.cta-title{
+  font-family:'Sora',sans-serif;font-size:clamp(32px,4vw,52px);
+  font-weight:800;color:#fff;letter-spacing:-0.03em;
+  line-height:1.1;margin-bottom:16px;
+}
+.cta-sub{
+  font-size:16px;color:rgba(255,255,255,.55);
+  max-width:480px;margin:0 auto 40px;line-height:1.7;
+}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--blue);color:#fff;
+  padding:16px 32px;border-radius:10px;
+  font-size:16px;font-weight:600;text-decoration:none;
+  transition:background .2s,transform .15s;
+}
+.cta-btn:hover{background:var(--blue-dark);transform:translateY(-2px)}
+.cta-btn svg{width:16px;height:16px;stroke:#fff;stroke-width:2;fill:none}
+.cta-note{
+  margin-top:20px;font-size:12px;
+  color:rgba(255,255,255,.3);
+}
+
+/* ── FOOTER ── */
+.footer{
+  background:var(--ink);border-top:1px solid rgba(255,255,255,.06);
+  padding:24px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-brand{
+  font-family:'Sora',sans-serif;font-size:15px;font-weight:700;color:var(--blue);
+}
+.footer-info{font-size:12px;color:rgba(255,255,255,.3)}
+
+@media(max-width:640px){
+  .problema-grid,.svc-grid,.res-grid{grid-template-columns:1fr}
+  .hero{padding:48px 24px 56px}
+  .container{padding:48px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge"><div class="hero-dot"></div>Apresentação Comercial</div>
+  <h1 class="hero-title">
+    Sua clínica merece<br>
+    <em>uma presença digital</em><br>
+    à sua altura.
+  </h1>
+  <p class="hero-sub">
+    Cuidamos de tudo que seus pacientes veem antes de te escolher — do site ao Google, do Instagram ao anúncio.
+  </p>
+  <a href="https://wa.me/55SEUNUMERO" target="_blank" class="hero-cta">
+    Quero meu orçamento personalizado
+    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+  </a>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problema-section">
+  <div class="problema-inner">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">O problema</span>
+    </div>
+    <h2 class="section-title">O que acontece quando<br>sua presença digital <em>não existe</em></h2>
+    <p class="section-sub">Pacientes em potencial te procuram todo dia no Google e no Instagram. Sem presença, eles encontram outra psicóloga.</p>
+    <div class="problema-grid">
+      <div class="prob-card">
+        <div class="prob-icon">🔍</div>
+        <div class="prob-title">Invisível no Google</div>
+        <div class="prob-desc">Quando alguém busca "psicóloga em [sua cidade]", você não aparece. O paciente vai pra quem aparece primeiro.</div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">📱</div>
+        <div class="prob-title">Instagram sem consistência</div>
+        <div class="prob-desc">Perfil parado ou com posts esporádicos passa impressão de abandono. Paciente desconfia e não entra em contato.</div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">🌐</div>
+        <div class="prob-title">Sem site profissional</div>
+        <div class="prob-desc">Quando alguém te indica, a primeira coisa que o paciente faz é te procurar online. Sem site, a credibilidade cai.</div>
+      </div>
+      <div class="prob-card">
+        <div class="prob-icon">📣</div>
+        <div class="prob-title">Dependência de indicação</div>
+        <div class="prob-desc">Indicação é ótima, mas é imprevisível. Sem digital, você não controla o fluxo de novos pacientes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO TRABALHAMOS -->
+<section class="processo-section">
+  <div class="processo-inner">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Como trabalhamos</span>
+    </div>
+    <h2 class="section-title">Do briefing à entrega,<br><em>tudo documentado.</em></h2>
+    <p class="section-sub">Você não precisa entender de marketing. Precisa só responder algumas perguntas — nós cuidamos do resto.</p>
+    <div class="steps">
+      <div class="step-row">
+        <div class="step-n">1</div>
+        <div class="step-content">
+          <div class="step-title">Diagnóstico gratuito</div>
+          <div class="step-desc">Antes de qualquer proposta, analisamos sua presença digital atual — site, Google, Instagram — e te mostramos exatamente o que está te fazendo perder pacientes.</div>
+          <span class="step-tag">Sem custo · 15 minutos</span>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-n">2</div>
+        <div class="step-content">
+          <div class="step-title">Briefing personalizado</div>
+          <div class="step-desc">Você preenche um formulário rápido contando sobre sua especialidade, público-alvo e estilo. Essas informações guiam todo o trabalho — do texto do site ao conteúdo do Instagram.</div>
+          <span class="step-tag">Formulário online · 20 minutos</span>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-n">3</div>
+        <div class="step-content">
+          <div class="step-title">Produção e entrega</div>
+          <div class="step-desc">Executamos tudo conforme o prazo combinado. Você acompanha pelo WhatsApp e valida antes da entrega final. Sem surpresas, sem achismo.</div>
+          <span class="step-tag">Prazo fixo · 2 rodadas de revisão</span>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-n">4</div>
+        <div class="step-content">
+          <div class="step-title">Suporte contínuo</div>
+          <div class="step-desc">Após a entrega, estamos disponíveis para dúvidas e ajustes. Para serviços recorrentes como social media e tráfego, fazemos relatório mensal com os resultados.</div>
+          <span class="step-tag">WhatsApp · Relatório mensal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="servicos-section">
+  <div class="servicos-inner">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Serviços</span>
+    </div>
+    <h2 class="section-title">Tudo que você precisa<br>em <em>um só lugar.</em></h2>
+    <p class="section-sub">Trabalhe com um serviço ou com o pacote completo. O importante é começar.</p>
+    <div class="svc-grid">
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="svc-name">Landing Page</div>
+        <div class="svc-desc">Site profissional criado para converter visitantes em pacientes. Design personalizado com sua identidade, responsivo e rápido.</div>
+        <div class="svc-includes">
+          <span class="svc-tag">Design personalizado</span>
+          <span class="svc-tag">Copy inclusa</span>
+          <span class="svc-tag">Entrega em 5 dias</span>
+          <span class="svc-tag">2 revisões</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <div class="svc-name">Google Meu Negócio</div>
+        <div class="svc-desc">Configuração completa e otimização do seu perfil no Google. Seus pacientes te encontram quando buscam na sua cidade.</div>
+        <div class="svc-includes">
+          <span class="svc-tag">Configuração completa</span>
+          <span class="svc-tag">Fotos otimizadas</span>
+          <span class="svc-tag">Posts semanais</span>
+          <span class="svc-tag">Gestão de avaliações</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        </div>
+        <div class="svc-name">Social Media</div>
+        <div class="svc-desc">Conteúdo mensal para Instagram pensado para o seu público. Você só precisa postar — ou a gente agenda por você.</div>
+        <div class="svc-includes">
+          <span class="svc-tag">12 posts/mês</span>
+          <span class="svc-tag">Artes personalizadas</span>
+          <span class="svc-tag">Legenda + hashtags</span>
+          <span class="svc-tag">Agendamento</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="svc-name">Tráfego Pago</div>
+        <div class="svc-desc">Anúncios no Meta e Google gerenciados com estratégia. Cada real investido com foco em trazer pacientes reais.</div>
+        <div class="svc-includes">
+          <span class="svc-tag">Meta Ads</span>
+          <span class="svc-tag">Google Ads</span>
+          <span class="svc-tag">Artes dos anúncios</span>
+          <span class="svc-tag">Relatório mensal</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        </div>
+        <div class="svc-name">Identidade Visual</div>
+        <div class="svc-desc">Logo, paleta de cores, tipografia e guia de marca. Para quem está começando ou quer renovar a imagem profissional.</div>
+        <div class="svc-includes">
+          <span class="svc-tag">Logo profissional</span>
+          <span class="svc-tag">Paleta de cores</span>
+          <span class="svc-tag">Tipografia</span>
+          <span class="svc-tag">Guia de marca</span>
+        </div>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="svc-name">WhatsApp Business</div>
+        <div class="svc-desc">Configuração profissional com mensagens automáticas de boas-vindas, catálogo de serviços e links estratégicos.</div>
+        <div class="svc-includes">
+          <span class="svc-tag">Mensagens automáticas</span>
+          <span class="svc-tag">Catálogo</span>
+          <span class="svc-tag">Horário de atendimento</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section class="resultados-section">
+  <div class="resultados-inner">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">O que você pode esperar</span>
+    </div>
+    <h2 class="section-title">Resultados reais,<br>não só relatórios bonitos.</h2>
+    <p class="section-sub">Nosso foco é simples: mais pacientes chegando até você pelo digital.</p>
+    <div class="res-grid">
+      <div class="res-card">
+        <div class="res-num">+3x</div>
+        <div class="res-label">mais visibilidade no Google com GMB otimizado</div>
+      </div>
+      <div class="res-card">
+        <div class="res-num">5 dias</div>
+        <div class="res-label">prazo médio de entrega de uma landing page completa</div>
+      </div>
+      <div class="res-card">
+        <div class="res-num">100%</div>
+        <div class="res-label">focado em psicólogas e profissionais de saúde mental</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section class="diff-section">
+  <div class="diff-inner">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Por que a Treehouse</span>
+    </div>
+    <h2 class="section-title">Não somos mais uma<br><em>agência genérica.</em></h2>
+    <p class="section-sub">Trabalhamos exclusivamente com psicólogas. Isso muda tudo.</p>
+    <div class="diff-list">
+      <div class="diff-item">
+        <div class="diff-check">✓</div>
+        <div class="diff-text">
+          <div class="diff-title">Especialistas no nicho de psicologia</div>
+          <div class="diff-desc">Entendemos a linguagem, as limitações éticas do CFP e o perfil de paciente que você quer atrair. Não precisamos aprender do zero sobre o seu mercado.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-check">✓</div>
+        <div class="diff-text">
+          <div class="diff-title">Entrega rápida com processo estruturado</div>
+          <div class="diff-desc">Cada serviço tem um processo documentado com prazo fixo. Você sabe exatamente o que vai receber e quando — sem ficar no escuro esperando.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-check">✓</div>
+        <div class="diff-text">
+          <div class="diff-title">Tecnologia e IA para entregar mais e melhor</div>
+          <div class="diff-desc">Usamos inteligência artificial para otimizar processos e entregar resultados de alta qualidade com mais agilidade — sem abrir mão da personalização.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-check">✓</div>
+        <div class="diff-text">
+          <div class="diff-title">Atendimento próximo e sem enrolação</div>
+          <div class="diff-desc">Você fala diretamente com quem faz o trabalho. Sem passar por vários atendentes, sem respostas prontas, sem sumir depois de fechar o contrato.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-tag">Próximo passo</div>
+    <h2 class="cta-title">Pronta para ter mais<br>pacientes chegando<br>até você?</h2>
+    <p class="cta-sub">Me conta sua situação pelo WhatsApp e monto um orçamento personalizado com exatamente o que faz sentido pra você agora.</p>
+    <a href="https://wa.me/55SEUNUMERO?text=Oi!%20Vi%20a%20apresenta%C3%A7%C3%A3o%20da%20Treehouse%20Digital%20e%20gostaria%20de%20saber%20mais." target="_blank" class="cta-btn">
+      <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Quero meu orçamento personalizado
+    </a>
+    <p class="cta-note">Sem compromisso · Resposta em até 24h · 100% pelo WhatsApp</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">Treehouse Digital.</div>
+  <div class="footer-info" id="footer-contact">SEUNUMERO · @treehousedigital</div>
+</footer>
+
+</body>
+</html>
